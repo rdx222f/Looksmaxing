@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Looksmaxing Mastery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dark">
+  <header class="site-header">
+    <div class="brand">
+      <img src="img/logo.svg" alt="logo" class="logo">
+      <div class="brand-text">
+        <h1>Looksmaxing <span>Mastery</span></h1>
+        <p class="tag">Mejora tu apariencia · Gana confianza</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="guia.html">Guía</a>
+      <a href="blog.html">Blog</a>
+      <a href="gallery.html">Galería</a>
+      <a href="foro.html">Foro</a>
+    </nav>
+    <button id="toggleTheme" class="btn-ghost">Modo Claro</button>
+  </header>
+
+  <main>
+    <section class="hero big">
+      <div class="hero-inner">
+        <h2>Transforma tu apariencia. <span>Transforma tu vida.</span></h2>
+        <p>Guías prácticas, rutinas, herramientas y una comunidad que apoya tu progreso.</p>
+        <div class="cta">
+          <a class="btn-primary" href="guia.html">Leer la Guía</a>
+          <a class="btn-outline" href="foro.html">Ir al Foro</a>
+        </div>
+      </div>
+      <div class="hero-deco">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f9c2d4a4a1d8f6f3b4b9c3f7f5d9b3a" alt="hero" />
+      </div>
+    </section>
+
+    <section class="features">
+      <article class="card">
+        <h3>Fundamentos</h3>
+        <p>Los huesos, la mandíbula y la postura son la base. Aprende cómo hábitos diarios influyen en tu estructura facial.</p>
+        <a href="guia.html#huesos" class="link">Ir a la guía →</a>
+      </article>
+      <article class="card">
+        <h3>Cuidado de la piel</h3>
+        <p>Rutina fácil: limpieza, protección solar, exfoliación y hidratación. Revisa nuestro post sobre rutinas completas.</p>
+        <a href="posts/piel-rutina-completa.html" class="link">Leer rutina →</a>
+      </article>
+      <article class="card">
+        <h3>Foro & Comunidad</h3>
+        <p>Comparte progresos, pide consejos y sube tus fotos en la galería (requiere Firebase).</p>
+        <a href="foro.html" class="link">Entrar al foro →</a>
+      </article>
+    </section>
+
+    <section class="highlights">
+      <h2>Recomendaciones destacadas</h2>
+      <div class="grid">
+        <div class="highlight">
+          <h4>Postura de poder</h4>
+          <p>Mantén el pecho abierto y barbilla paralela al suelo para proyectar seguridad.</p>
+        </div>
+        <div class="highlight">
+          <h4>Alimentación</h4>
+          <p>Proteínas magras, vegetales y grasas buenas para una piel y músculos saludables.</p>
+        </div>
+        <div class="highlight">
+          <h4>Entrenamiento facial</h4>
+          <p>Ejercicios suaves y consistentes ayudan, pero la evidencia varía; evita forzar la ATM.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-preview">
+      <h2>Antes y después (ejemplos)</h2>
+      <div class="gallery-grid">
+        <div class="tile"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" alt="before"/><div class="cap">Antes</div></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1541534401786-2f7177f5b3d7?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2" alt="after"/><div class="cap">Después</div></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3" alt="style"/><div class="cap">Estilo</div></div>
+      </div>
+      <a class="btn-outline" href="gallery.html">Ver galería completa</a>
+    </section>
+
+    <section class="latest-posts">
+      <h2>Últimos artículos</h2>
+      <div class="posts-row">
+        <article class="post-card">
+          <img src="https://images.unsplash.com/photo-1520975924076-1cfc0b3f3b83?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4" alt="post"/>
+          <h3><a href="posts/habitos-diarios.html">5 hábitos diarios para mejorar tu rostro</a></h3>
+          <p>Plan sencillo para integrar hábitos que mejoran tu piel, postura y energía.</p>
+        </article>
+        <article class="post-card">
+          <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=5" alt="post2"/>
+          <h3><a href="posts/ejercicios-mandibula.html">Entrenamiento seguro para mandíbula</a></h3>
+          <p>Ejercicios seguros y recomendaciones para evitar lesiones en la ATM.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <h3>Listo para empezar?</h3>
+      <p>Configura Firebase (ver README) y tendrás foro, galería y perfiles funcionando en minutos.</p>
+      <a class="btn-primary" href="guia.html">Comenzar ahora</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>© 2025 Looksmaxing Mastery · Hecho con ❤️</div>
+    <div class="foot-links"><a href="README.md">Instrucciones</a></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Foro · Looksmaxing</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"></head>
+<body class="dark">
+<header class="site-header small"><div class="brand"><img src="img/logo.svg" class="logo"><div class="brand-text"><h1>Looksmaxing <span>Mastery</span></h1></div></div>
+<nav class="nav"><a href="index.html">Inicio</a><a href="guia.html">Guía</a><a href="blog.html">Blog</a><a href="gallery.html">Galería</a><a href="foro.html" class="active">Foro</a></nav></header>
+<main class="content">
+  <h1>Foro de la comunidad</h1>
+  <p class="muted">Regístrate para publicar y votar recomendaciones. Moderación recomendada.</p>
+  <section class="auth card" id="auth">
+    <h2>Cuenta</h2>
+    <input id="email" type="email" placeholder="Correo electrónico" />
+    <input id="password" type="password" placeholder="Contraseña (min 6)" />
+    <div class="auth-actions">
+      <button id="btnSignup" class="btn-primary">Crear cuenta</button>
+      <button id="btnLogin" class="btn-outline">Iniciar sesión</button>
+      <button id="btnLogout" class="btn-ghost" style="display:none">Cerrar sesión</button>
+    </div>
+    <p id="userInfo" class="muted"></p>
+  </section>
+
+  <section class="new-post card" id="newPost" style="display:none">
+    <h2>Publicar recomendación</h2>
+    <input id="title" placeholder="Título corto" />
+    <textarea id="content" placeholder="Escribe tu recomendación..."></textarea>
+    <input type="file" id="imgUpload" accept="image/*" />
+    <button id="btnPost" class="btn-primary">Publicar</button>
+  </section>
+
+  <section id="postsList" class="posts-list">
+    <div class="post-card card"><strong>Post de bienvenida</strong><div class="muted">por admin</div><p>Bienvenido al foro — comparte tus rutinas y progresos.</p></div>
+  </section>
+
+  <div class="note card"><h3>Moderación</h3><p>Considera crear una cuenta admin y reglas de Firestore para que solo los moderadores puedan borrar o marcar contenidos inapropiados.</p></div>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<script src="js/firebase-config.example.js"></script>
+<script src="js/forum.js"></script>
+</body>
+</html>

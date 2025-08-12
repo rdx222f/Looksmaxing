@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Galería · Looksmaxing</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"></head>
+<body class="dark">
+<header class="site-header small"><div class="brand"><img src="img/logo.svg" class="logo"><div class="brand-text"><h1>Looksmaxing <span>Mastery</span></h1></div></div>
+<nav class="nav"><a href="index.html">Inicio</a><a href="guia.html">Guía</a><a href="blog.html">Blog</a><a href="gallery.html" class="active">Galería</a><a href="foro.html">Foro</a></nav></header>
+<main class="content">
+  <h1>Galería de Antes/Después</h1>
+  <p class="muted">Sube tus fotos para inspirar a la comunidad. Las imágenes se almacenan en Firebase Storage.</p>
+  <section class="card upload" id="uploadCard">
+    <h2>Subir imagen</h2>
+    <input type="file" id="galleryFile" accept="image/*" />
+    <input id="imgCaption" placeholder="Descripción" />
+    <button id="btnUpload" class="btn-primary">Subir</button>
+  </section>
+  <section id="galleryGrid" class="gallery-grid"></section>
+  <div class="note card"><h3>Configurar Firebase</h3><p>Ver README para pasos de configuración (Auth, Storage, Firestore opcional).</p></div>
+</main>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<script src="js/firebase-config.example.js"></script>
+<script>
+// Minimal client-side upload logic (requires firebase-config.js to be provided)
+document.addEventListener('DOMContentLoaded', ()=>{
+  const btn = document.getElementById('btnUpload');
+  btn && btn.addEventListener('click', async ()=>{
+    if(typeof firebase === 'undefined' || typeof firebaseConfig === 'undefined'){ alert('Configura firebase-config.js'); return; }
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const storage = firebase.storage();
+    const file = document.getElementById('galleryFile').files[0];
+    if(!file){ alert('Selecciona una imagen'); return; }
+    const ref = storage.ref().child('gallery/' + Date.now() + '_' + file.name);
+    const task = ref.put(file);
+    task.on('state_changed', null, err=>alert(err.message), async ()=>{
+      const url = await ref.getDownloadURL();
+      // For demo we simply add to the page
+      const grid = document.getElementById('galleryGrid');
+      const el = document.createElement('div'); el.className='tile'; el.innerHTML = `<img src="${url}"><div class="cap">${document.getElementById('imgCaption').value || ''}</div>`; grid.prepend(el);
+      document.getElementById('galleryFile').value=''; document.getElementById('imgCaption').value='';
+    });
+  });
+});
+</script>
+</body>
+</html>
